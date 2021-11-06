@@ -1,9 +1,14 @@
-import Form from "../components/From";
+import Form from "../components/form_insert";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import List from "../components/list";
 
 function App() {
+  
   return (
-    <Form/>
+    <>
+      <Form/>
+      <List/>
+    </>
   );
 }
 
