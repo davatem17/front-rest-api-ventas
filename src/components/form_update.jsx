@@ -1,35 +1,56 @@
 import React, {useRef} from "react";
 import axios from 'axios';
 
-const Items = () => {
+const FormUpdate = ({updateId}) => {
     const form = useRef(null);
+
+    console.log(updateId.producto);
+   
 
     const handleSubimit = () => {
         const formData = new FormData(form.current);
         const data = {
+            id: parseInt(formData.get("id")),
             cantidad: parseInt(formData.get("cantidad")),
             producto: formData.get("producto"),
             precio_unit: parseFloat(formData.get("precio_unit")),
             precio_tot: parseFloat(formData.get("precio_tot"))
         }
 
-        const headers = {
-            'Content-Type': 'text/plain'
-        };
+        console.log(data);
 
-        axios.post('http://localhost/apidistribuidas/controller/venta.php?opc=Insert', data, {headers}).then(function(response) {
-            console.log(response);
-        }).catch(function(error) {
-            console.log(error);
-        })
-
-        form.current.reset();
+        //const headers = {
+        //    'Content-Type': 'text/plain'
+        //};
+//
+        //axios.put('http://localhost/apidistribuidas/controller/venta.php?opc=Update', data, {headers}).then(function(response) {
+        //    console.log(response);
+        //}).catch(function(error) {
+        //    console.log(error);
+        //})
+//
+        //form.current.reset();
 
         
     }
 
   return (
     <form ref={form}>
+        <div className="mb-3">
+        <label htmlFor="id" className="form-label" >
+          ID
+        </label>
+        
+        <input
+          type="number"
+          name="id"
+          className="form-control"
+          id=""
+          
+        />
+        
+        
+      </div>
       <div className="mb-3">
         <label htmlFor="cantidad" className="form-label">
           Cantidad
@@ -45,7 +66,7 @@ const Items = () => {
         <label htmlFor="producto" className="form-label">
           Prodcuto
         </label>
-        <input type="text" name="producto" className="form-control" id="" />
+        <input type="text" name="producto" className="form-control" id="" value={updateId.producto} />
       </div>
       <div className="mb-3">
         <label htmlFor="precio_unit" className="form-label">
@@ -86,4 +107,4 @@ const Items = () => {
   );
 };
 
-export default Items;
+export default FormUpdate;
