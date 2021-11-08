@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import List from "../components/list";
 import useGetVentas from "../hooks/useGetVentas";
 
-const API = 'http://localhost/apidistribuidas/controller/venta.php?opc=GetAll'; 
+const API = 'http://localhost/practica/controller/venta.php?opc=GetAll'; 
 
 function App() {
   const getVentas = useGetVentas(API);

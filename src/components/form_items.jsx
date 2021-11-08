@@ -17,7 +17,7 @@ const Items = () => {
             'Content-Type': 'text/plain'
         };
 
-        axios.post('http://localhost/apidistribuidas/controller/venta.php?opc=Insert', data, {headers}).then(function(response) {
+        axios.post('http://localhost/practica/controller/venta.php?opc=Insert', data, {headers}).then(function(response) {
             console.log(response);
         }).catch(function(error) {
             console.log(error);
